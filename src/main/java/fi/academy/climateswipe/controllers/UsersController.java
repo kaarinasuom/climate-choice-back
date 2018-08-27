@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/users")
 public class UsersController {
@@ -27,8 +25,8 @@ public class UsersController {
         return usersRepository.findAll();
     }
 
-    @GetMapping("/oneuser/{id}")
-    public Optional<Users> show(@PathVariable Integer id) {
+    @GetMapping("/{id}")
+    public Users show(@PathVariable int id) {
         return usersRepository.findById(id);
     }
 
