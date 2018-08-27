@@ -1,13 +1,15 @@
-package fi.academy.climateswipe.Entities;
+package fi.academy.climateswipe.entities;
 
 
-import org.springframework.data.annotation.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Users {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private String oauth_id;

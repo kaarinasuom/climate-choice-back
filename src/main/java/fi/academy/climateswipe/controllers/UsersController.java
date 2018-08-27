@@ -1,8 +1,8 @@
-package fi.academy.climateswipe.Controllers;
+package fi.academy.climateswipe.controllers;
 
 
-import fi.academy.climateswipe.Entities.Users;
-import fi.academy.climateswipe.Repositories.UsersRepository;
+import fi.academy.climateswipe.entities.Users;
+import fi.academy.climateswipe.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,12 +22,12 @@ public class UsersController {
         this.usersRepository = usersRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public Iterable<Users> contact() {
         return usersRepository.findAll();
     }
 
-    @GetMapping("/oneuser/{id}")
+    @GetMapping("/{id}")
     public Optional<Users> show(@PathVariable Integer id) {
         return usersRepository.findById(id);
     }
