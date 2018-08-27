@@ -1,6 +1,6 @@
 package fi.academy.climateswipe.controllers;
-import fi.academy.climateswipe.Entities.Tasks;
-import fi.academy.climateswipe.Repositories.TasksRepository;
+import fi.academy.climateswipe.entities.Tasks;
+import fi.academy.climateswipe.repositories.TasksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,22 +13,22 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/Tasks.java")
 public class TasksController {
-    private TasksRepository TasksRepository;
+    private TasksRepository tasksRepository;
 
     @Autowired
     public TasksController(
             TasksRepository TasksRepository) {
-        this.TasksRepository = TasksRepository;
+        this.tasksRepository = TasksRepository;
     }
 
     @GetMapping("/Task/{id}")
     public Optional<Tasks> show(@PathVariable Integer id) {
-        return TasksRepository.findById(id);
+        return tasksRepository.findById(id);
     }
 
     @GetMapping("/")
     public List<Tasks> contact() {
-        return TasksRepository.findAll();
+        return tasksRepository.findAll();
     }
 
 }
