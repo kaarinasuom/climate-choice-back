@@ -1,27 +1,28 @@
-package fi.aademy.climateswipe.Entities;
+package fi.academy.climateswipe.entities;
+
 
 import javax.persistence.*;
 
 @Entity
 public class Relations {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
     private String choice;
-//    @ManyToOne
-//    @JoinColumn
-//    private int Users user_id;
-//    @ManyToOne
-//    @JoinColumn
-//    private int Tasks task_id;
+    @ManyToOne
+    @JoinColumn
+    private Users user_id;
+    @ManyToOne
+    @JoinColumn
+    private Tasks task_id;
 
     public Relations() {
     }
 
-    public Relations(int id, String choice) {
-        this.id = id;
+    public Relations(String choice, Users user_id, Tasks task_id) {
         this.choice = choice;
-//        Users = users;
-//        Tasks = tasks;
+        this.user_id = user_id;
+        this.task_id = task_id;
     }
 
     public int getId() {
@@ -49,10 +50,10 @@ public class Relations {
 //    }
 //
 //    public int getTasks() {
-//        return Tasks;
+//        return Tasks.java;
 //    }
 //
 //    public void setTasks(int tasks) {
-//        Tasks = tasks;
+//        Tasks.java = tasks;
 //    }
 }

@@ -1,6 +1,6 @@
-package fi.aademy.climateswipe.Repositories;
+package fi.academy.climateswipe.repositories;
 
-import fi.aademy.climateswipe.Entities.Relations;
+import fi.academy.climateswipe.entities.Relations;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

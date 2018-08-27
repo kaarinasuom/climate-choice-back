@@ -1,8 +1,8 @@
-package fi.aademy.climateswipe.Controllers;
+package fi.academy.climateswipe.Controllers;
 
 
-import fi.aademy.climateswipe.Entities.Relations;
-import fi.aademy.climateswipe.Repositories.RelationsRepository;
+import fi.academy.climateswipe.entities.Relations;
+import fi.academy.climateswipe.repositories.RelationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
