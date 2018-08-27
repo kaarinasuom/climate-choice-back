@@ -1,4 +1,4 @@
-package fi.academy.climateswipe;
+package fi.aademy.climateswipe;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

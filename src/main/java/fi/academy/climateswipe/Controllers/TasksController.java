@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 @RestController
-@RequestMapping("/Tasks")
+@RequestMapping("/Tasks.java")
 public class TasksController {
     private TasksRepository TasksRepository;
 
