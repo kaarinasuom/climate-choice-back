@@ -3,12 +3,14 @@ package fi.academy.climateswipe.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.*;
+
 
 @Entity
 public class Users {
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(columnDefinition = "serial")
     private int id;
     private String name;
     private String oauth_id;
