@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Tasks.java")
+@RequestMapping("/tasks")
 public class TasksController {
     private TasksRepository tasksRepository;
 
@@ -21,13 +21,13 @@ public class TasksController {
         this.tasksRepository = TasksRepository;
     }
 
-    @GetMapping("/Task/{id}")
+    @GetMapping("/task/{id}")
     public Optional<Tasks> show(@PathVariable Integer id) {
         return tasksRepository.findById(id);
     }
 
-    @GetMapping("/")
-    public List<Tasks> contact() {
+    @GetMapping
+    public Iterable<Tasks> contact() {
         return tasksRepository.findAll();
     }
 
