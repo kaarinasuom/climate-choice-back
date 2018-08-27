@@ -1,4 +1,4 @@
-package fi.academy.climateswipe;
+package fi.aademy.climateswipe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
