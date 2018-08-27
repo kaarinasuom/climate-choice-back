@@ -1,33 +1,28 @@
 package fi.academy.climateswipe.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 @Entity
 public class Tasks {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(columnDefinition = "serial")
     private int id;
-
     private String title;
-    @Lob
     private String content1;
-    @Lob
     private String content2;
-    private byte img;
+//    private byte img;
     private String rating;
 
     public Tasks() {
     }
 
-    public Tasks(int id, String title, String content1, String content2, byte img, String rating) {
+    public Tasks(int id, String title, String content1, String content2, String rating) {
         this.id = id;
         this.title = title;
         this.content1 = content1;
         this.content2 = content2;
-        this.img = img;
+//        this.img = img;
         this.rating = rating;
     }
 
@@ -63,13 +58,13 @@ public class Tasks {
         this.content2 = content2;
     }
 
-    public byte getImg() {
-        return img;
-    }
-
-    public void setImg(byte img) {
-        this.img = img;
-    }
+//    public byte getImg() {
+//        return img;
+//    }
+//
+//    public void setImg(byte img) {
+//        this.img = img;
+//    }
 
     public String getRating() {
         return rating;

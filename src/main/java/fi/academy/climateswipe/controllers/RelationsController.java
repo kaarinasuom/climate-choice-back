@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/relations")
@@ -22,9 +23,9 @@ public class RelationsController {
     }
 
     @GetMapping
-    public List<Relations> getAll() { return relationsRepository.findAll(); }
+    public Iterable<Relations> getAll() { return relationsRepository.findAll(); }
 
     @GetMapping("/{id}")
-    public Relations getOne(@PathVariable int id) { return relationsRepository.findById(id); }
+    public Optional<Relations> getOne(@PathVariable int id) { return relationsRepository.findById(id); }
 
 }

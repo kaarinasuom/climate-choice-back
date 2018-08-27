@@ -6,23 +6,22 @@ import javax.persistence.*;
 @Entity
 public class Relations {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(columnDefinition = "serial")
     private int id;
     private String choice;
-    @ManyToOne
-    @JoinColumn
-    private Users user_id;
-    @ManyToOne
-    @JoinColumn
-    private Tasks task_id;
+    @ManyToOne @JoinColumn
+    private Users user;
+    @ManyToOne @JoinColumn
+    private Tasks task;
 
     public Relations() {
     }
 
-    public Relations(String choice, Users user_id, Tasks task_id) {
+    public Relations(String choice, Users user, Tasks task) {
         this.choice = choice;
-        this.user_id = user_id;
-        this.task_id = task_id;
+        this.user = user;
+        this.task = task;
     }
 
     public int getId() {
@@ -41,19 +40,19 @@ public class Relations {
         this.choice = choice;
     }
 
-//    public int getUsers() {
-//        return Users;
-//    }
-//
-//    public void setUsers(int users) {
-//        Users = users;
-//    }
-//
-//    public int getTasks() {
-//        return Tasks.java;
-//    }
-//
-//    public void setTasks(int tasks) {
-//        Tasks.java = tasks;
-//    }
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+    public Tasks getTask() {
+        return task;
+    }
+
+    public void setTask(Tasks task) {
+        this.task = task;
+    }
 }
