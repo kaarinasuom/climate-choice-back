@@ -1,4 +1,4 @@
-package fi.academy.climateswipe.Controllers;
+package fi.academy.climateswipe.controllers;
 
 
 import fi.academy.climateswipe.entities.Users;
