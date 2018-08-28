@@ -28,6 +28,7 @@ public class UsersController {
     }
 
     @GetMapping("/{id}")
+
     public Users show(@PathVariable int id) {
         return usersRepository.findById(id);
     }
