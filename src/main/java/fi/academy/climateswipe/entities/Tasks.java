@@ -9,7 +9,9 @@ public class Tasks {
     @Column(columnDefinition = "serial")
     private int id;
     private String title;
+    @Column(columnDefinition = "TEXT")
     private String content1;
+    @Column(columnDefinition = "TEXT")
     private String content2;
 //    private byte img;
     private String rating;
