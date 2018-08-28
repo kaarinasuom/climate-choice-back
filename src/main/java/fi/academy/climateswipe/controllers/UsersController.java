@@ -51,12 +51,4 @@ public class UsersController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
-
-//    @PutMapping("/{id}")
-//    public void  update(@RequestBody Users newInfo, @PathVariable int id) {
-//        Users user = usersRepository.findById(id);
-//        user.set;
-//        usersRepository.save(user);
-//    }
-
 }
