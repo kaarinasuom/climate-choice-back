@@ -21,7 +21,7 @@ public class TasksController {
         this.tasksRepository = TasksRepository;
     }
 
-    @GetMapping("/task/{id}")
+    @GetMapping("/{id}")
     public Optional<Tasks> show(@PathVariable Integer id) {
         return tasksRepository.findById(id);
     }

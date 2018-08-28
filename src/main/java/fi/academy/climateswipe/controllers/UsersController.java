@@ -4,12 +4,12 @@ package fi.academy.climateswipe.controllers;
 import fi.academy.climateswipe.entities.Users;
 import fi.academy.climateswipe.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.Optional;
+import java.net.URI;
 
 @RestController
 @RequestMapping("/users")
@@ -27,10 +27,36 @@ public class UsersController {
         return usersRepository.findAll();
     }
 
-    @GetMapping("/oneuser/{id}")
-    public Optional<Users> show(@PathVariable Integer id) {
+    @GetMapping("/{id}")
+    public Users show(@PathVariable int id) {
         return usersRepository.findById(id);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteOne(@PathVariable int id) {
+        usersRepository.deleteById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PostMapping
+    public ResponseEntity<?> addUser(@RequestBody Users user) {
+        usersRepository.save(user);
+        int id = user.getId();
+        URI location = UriComponentsBuilder.newInstance()
+                .scheme("http")
+                .host("localhost")
+                .port(8080)
+                .path("/users/{id}")
+                .buildAndExpand(id)
+                .toUri();
+        return ResponseEntity.created(location).build();
+    }
+
+//    @PutMapping("/{id}")
+//    public void  update(@RequestBody Users newInfo, @PathVariable int id) {
+//        Users user = usersRepository.findById(id);
+//        user.set;
+//        usersRepository.save(user);
+//    }
 
 }
