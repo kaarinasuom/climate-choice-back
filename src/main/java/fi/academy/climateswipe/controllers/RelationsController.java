@@ -29,7 +29,8 @@ public class RelationsController {
     }
 
     @GetMapping
-    public List<Relations> getAll() { return relationsRepository.findAll(); }
+    public List<Relations> getAll() {
+        return relationsRepository.findAll(); }
 
     @GetMapping("/{id}")
     public Relations getOne(@PathVariable int id) { return relationsRepository.findById(id);
