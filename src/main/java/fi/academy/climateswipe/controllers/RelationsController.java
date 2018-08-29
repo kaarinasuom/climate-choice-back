@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/relations")
 public class RelationsController {
     private RelationsRepository relationsRepository;
@@ -37,8 +38,8 @@ public class RelationsController {
     }
 
     @GetMapping("user/{id}")
-    public List<Relations> getAllRelations(@PathVariable int id) {
-        Users user = usersRepository.findById(id);
+    public List<Relations> getAllRelations(@PathVariable String id) {
+        Users user = usersRepository.findByUid(id);
         return relationsRepository.findAllByUser(user);
     }
 

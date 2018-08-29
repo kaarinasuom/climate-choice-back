@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/tasks")
 public class TasksController {
     private TasksRepository tasksRepository;
@@ -26,6 +27,7 @@ public class TasksController {
     public Optional<Tasks> show(@PathVariable Integer id) {
         return tasksRepository.findById(id);
     }
+
 
     @GetMapping
     public Iterable<Tasks> contact() {
