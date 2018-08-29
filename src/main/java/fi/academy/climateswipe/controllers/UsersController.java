@@ -29,20 +29,23 @@ public class UsersController {
     }
 
     @GetMapping("/{id}")
-    public Users show(@PathVariable int id) {
-        return usersRepository.findById(id);
+    public Users show(@PathVariable String id) {
+        return usersRepository.findByUid(id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteOne(@PathVariable int id) {
+    public ResponseEntity<?> deleteOne(@PathVariable String id) {
         usersRepository.deleteById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+
     @PostMapping
     public ResponseEntity<?> addUser(@RequestBody Users user) {
+        Users newUser = user;
+        newUser.setUid(user.getUid());
         usersRepository.save(user);
-        int id = user.getId();
+        String id = user.getUid();
         URI location = UriComponentsBuilder.newInstance()
                 .scheme("http")
                 .host("localhost")
@@ -52,12 +55,4 @@ public class UsersController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
-
-//    @PutMapping("/{id}")
-//    public void  update(@RequestBody Users newInfo, @PathVariable int id) {
-//        Users user = usersRepository.findById(id);
-//        user.set;
-//        usersRepository.save(user);
-//    }
-
 }

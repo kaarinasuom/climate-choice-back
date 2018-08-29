@@ -1,37 +1,35 @@
 package fi.academy.climateswipe.entities;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.*;
 
 
 @Entity
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(columnDefinition = "serial")
-    private int id;
+    private String uid;
     private String name;
-    private String oauth_id;
 
     public Users() {
 
     }
 
-    public Users(int id, String name, String oauth_id) {
-        this.id=id;
-        this.name=name;
-        this.oauth_id=oauth_id;
+    public Users(String id, String name) {
+        this.uid =id;
+        this.name = name;
     }
 
 
-    public int getId() {
-        return id;
+    public String getUid() {
+        return uid;
     }
 
-    public void setId(int id) {
-        this.id=id;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getName() {
@@ -40,14 +38,6 @@ public class Users {
 
     public void setName(String name) {
         this.name=name;
-    }
-
-    public String getOauth_id() {
-        return oauth_id;
-    }
-
-    public void setOauth_id(String oauth_id) {
-        this.oauth_id=oauth_id;
     }
 
 

@@ -4,7 +4,7 @@ import fi.academy.climateswipe.entities.Users;
 import org.springframework.data.repository.CrudRepository;
 
 
-public interface UsersRepository extends CrudRepository<Users, Integer> {
-    Users findById(int id);
+public interface UsersRepository extends CrudRepository<Users, String> {
+    Users findByUid(String uid);
 
 }
