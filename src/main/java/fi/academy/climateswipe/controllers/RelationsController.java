@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins= "http://localhost:3000")
 @RequestMapping("/relations")
 public class RelationsController {
     private RelationsRepository relationsRepository;
