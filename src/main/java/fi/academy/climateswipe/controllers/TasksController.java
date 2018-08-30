@@ -40,6 +40,9 @@ public class TasksController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
+    @GetMapping("/allids")
+    public List<Integer> idsToList() {return tasksRepository.findAllIds();}
+
     @PostMapping
     public ResponseEntity<?> addRelation(@RequestBody Tasks tasks) {
         tasksRepository.save(tasks);
