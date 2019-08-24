@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins= "http://localhost:3000")
+//@CrossOrigin(origins= "http://localhost:3000")
 @RequestMapping("/relations")
 public class RelationsController {
     private RelationsRepository relationsRepository;
@@ -55,8 +55,8 @@ public class RelationsController {
         int id = relations.getId();
         URI location = UriComponentsBuilder.newInstance()
                 .scheme("http")
-                .host("localhost")
-                .port(8080)
+                //.host("localhost")
+                //.port(8080)
                 .path("/relations/{id}")
                 .buildAndExpand(id)
                 .toUri();

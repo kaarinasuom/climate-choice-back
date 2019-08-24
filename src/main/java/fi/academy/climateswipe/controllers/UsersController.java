@@ -12,7 +12,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@CrossOrigin(origins= "http://localhost:3000")
+//@CrossOrigin(origins= "http://localhost:3000")
 @RequestMapping("/users")
 public class UsersController {
 
@@ -48,8 +48,8 @@ public class UsersController {
         String id = user.getUid();
         URI location = UriComponentsBuilder.newInstance()
                 .scheme("http")
-                .host("localhost")
-                .port(8080)
+                //.host("localhost")
+                //.port(8080)
                 .path("/users/{id}")
                 .buildAndExpand(id)
                 .toUri();

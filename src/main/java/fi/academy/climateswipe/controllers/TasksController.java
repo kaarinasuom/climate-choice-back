@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins= "http://localhost:3000")
+//@CrossOrigin(origins= "http://localhost:3000")
 @RequestMapping("/tasks")
 public class TasksController {
     private TasksRepository tasksRepository;
@@ -49,8 +49,8 @@ public class TasksController {
         int id = tasks.getId();
         URI location = UriComponentsBuilder.newInstance()
                 .scheme("http")
-                .host("localhost")
-                .port(8080)
+                //.host("localhost")
+                //.port(8080)
                 .path("/tasks/{id}")
                 .buildAndExpand(id)
                 .toUri();
