@@ -77,7 +77,6 @@
                 <configuration>
                     <executable>true</executable>
                     <finalName>climateswipe</finalName>
-                    <embeddedLaunchScript>src/main/launch.script</embeddedLaunchScript>
                 </configuration>
             </plugin>
         </plugins>
