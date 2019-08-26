@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins= "https://climate-choice-2019.herokuapp.com")
+@CrossOrigin(origins= "http://climate-choice-2019-back.herokuapp.com")
 @RequestMapping("/tasks")
 public class TasksController {
     private TasksRepository tasksRepository;
@@ -49,7 +49,7 @@ public class TasksController {
         int id = tasks.getId();
         URI location = UriComponentsBuilder.newInstance()
                 .scheme("http")
-                .host("climate-choice-2019.herokuapp.com")
+                .host("climate-choice-2019-back.herokuapp.com")
                 .path("/tasks/{id}")
                 .buildAndExpand(id)
                 .toUri();
