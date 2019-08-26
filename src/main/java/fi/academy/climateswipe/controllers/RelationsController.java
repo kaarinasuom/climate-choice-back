@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins= "https://climate-choice-2019.herokuapp.com")
 @RequestMapping("/relations")
 public class RelationsController {
     private RelationsRepository relationsRepository;
@@ -54,6 +55,7 @@ public class RelationsController {
         int id = relations.getId();
         URI location = UriComponentsBuilder.newInstance()
                 .scheme("http")
+                .host("climate-choice-2019.herokuapp.com")
                 .path("/relations/{id}")
                 .buildAndExpand(id)
                 .toUri();

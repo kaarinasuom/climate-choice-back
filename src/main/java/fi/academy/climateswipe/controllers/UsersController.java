@@ -12,6 +12,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @RestController
+@CrossOrigin(origins= "https://climate-choice-2019.herokuapp.com")
 @RequestMapping("/users")
 public class UsersController {
 
@@ -47,6 +48,7 @@ public class UsersController {
         String id = user.getUid();
         URI location = UriComponentsBuilder.newInstance()
                 .scheme("http")
+                .host("climate-choice-2019.herokuapp.com")
                 .path("/users/{id}")
                 .buildAndExpand(id)
                 .toUri();
